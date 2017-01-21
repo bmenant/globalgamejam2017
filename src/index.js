@@ -23,6 +23,7 @@ socket.on('incoming_wave', ({ roundId }) => {
 
 observeStore(store, ({ remainingActions, roundId }) => {
     if (remainingActions === 0) {
+        console.log(roundId);
         socket.emit('finished', roundId);
     }
 });
