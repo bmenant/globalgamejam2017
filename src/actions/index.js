@@ -13,6 +13,8 @@ export const BUILDING_TOOL = 'BUILDING_TOOL';
 
 export const FETCH_INITIAL_STATE = 'FETCH_INITIAL_STATE';
 
+export const GAME_OVER = 'GAME_OVER';
+
 export function digg(coordinates, value) {
     return {
         type: PLAYER_DIGGING,
@@ -49,5 +51,11 @@ export function fetchInitialState({ board, roundId }) {
         type: FETCH_INITIAL_STATE,
         boardValues: board,
         roundId,
+    }
+}
+
+export function gameOver() {
+    return {
+        type: GAME_OVER,
     }
 }

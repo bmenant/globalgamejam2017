@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import socket from './socket';
 
-import { triggerWave, fetchInitialState } from './actions';
+import { triggerWave, fetchInitialState, gameOver } from './actions';
 
 import App from './containers/App';
 
@@ -25,9 +25,14 @@ socket.on('init', (data) => {
     store.dispatch(fetchInitialState(data));
 });
 
-observeStore(store, ({ remainingActions, roundId }) => {
+observeStore(store, ({ boardValues, remainingActions, roundId, isGameOver }) => {
     if (remainingActions === 0) {
-        socket.emit('finished', { roundId });
+        socket.emit('max_actions_reached', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+    }
+
+    if (!isGameOver && boardValues.length > 0 && !boardValues.some(row => row.some(tile => tile > 0))) {
+        store.dispatch(gameOver());
+        socket.emit('game_over', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
     }
 });
 

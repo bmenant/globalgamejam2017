@@ -10,16 +10,12 @@ export default function Toolbox(props) {
 
     return (
         <div>
-            <a
-                href
-                onClick={(e) => { e.preventDefault(); select(DIGGING_TOOL); }}>
+            <div>
                 Digg { selectedTool === DIGGING_TOOL ? '(selected)' : '' }
-            </a>
-            <a
-                href
-                onClick={(e) => { e.preventDefault(); select(BUILDING_TOOL); }}>
+            </div>
+            <div>
                 Build { selectedTool === BUILDING_TOOL ? '(selected)' : '' }
-            </a>
+            </div>
         </div>
     );
 }

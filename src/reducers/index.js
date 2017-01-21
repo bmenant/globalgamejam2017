@@ -2,8 +2,11 @@ import {
     PLAYER_BUILDING,
     PLAYER_DIGGING,
     PLAYER_SELECTING_TOOL,
+    DIGGING_TOOL,
+    BUILDING_TOOL,
     INCOMING_WAVE,
     FETCH_INITIAL_STATE,
+    GAME_OVER,
 } from '../actions';
 
 const INCREASE = 1;
@@ -29,10 +32,13 @@ export default function (state = {}, action) {
             const { coordinates, value } = action;
             const { remainingActions } = state;
 
+            const newBoardValues = parseBoardValues(state.boardValues, coordinates, INCREASE);
+
             return remainingActions > 0 ?
                 Object.assign({}, state, {
-                    boardValues: parseBoardValues(state.boardValues, coordinates, INCREASE),
+                    boardValues: newBoardValues,
                     remainingActions: remainingActions -1,
+                    selectedTool: DIGGING_TOOL,
                 }) :
                 state;
         }
@@ -45,6 +51,7 @@ export default function (state = {}, action) {
                 Object.assign({}, state, {
                     boardValues:  parseBoardValues(state.boardValues, coordinates, DECREASE),
                     remainingActions: state.remainingActions - 1,
+                    selectedTool: BUILDING_TOOL,
                 }) :
                 state;
         }
@@ -93,6 +100,10 @@ export default function (state = {}, action) {
             const { roundId, boardValues } = action;
 
             return Object.assign({}, state, { boardValues, roundId });
+        }
+
+        case GAME_OVER: {
+            return Object.assign({}, state, { isGameOver: true });
         }
 
         default: return state;

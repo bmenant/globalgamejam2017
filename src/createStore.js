@@ -1,13 +1,15 @@
 import { createStore } from 'redux';
 
+import { DIGGING_TOOL } from './actions';
 import reducers from './reducers';
 
 export default function () {
     const preloadedState = Object.freeze({
         boardValues: [],
-        selectedTool: null,
+        selectedTool: DIGGING_TOOL,
         roundId: null,
         remainingActions: ACTIONS_PER_ROUND,
+        isGameOver: false,
     });
 
     return createStore(reducers, preloadedState,
