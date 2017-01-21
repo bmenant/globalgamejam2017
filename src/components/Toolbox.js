@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import socket from '../socket';
 
 import {
     DIGGING_TOOL,
@@ -20,6 +21,7 @@ export default function Toolbox(props) {
                 onClick={(e) => { e.preventDefault(); select(BUILDING_TOOL); }}>
                 Build { selectedTool === BUILDING_TOOL ? '(selected)' : '' }
             </a>
+            <a href onClick={(e)=> {e.preventDefault(); socket.emit("Wave2", {});}}>dsds</a>
         </div>
     );
 }
