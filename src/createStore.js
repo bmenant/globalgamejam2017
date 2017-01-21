@@ -9,6 +9,7 @@ export default function () {
             [0, 0, 0],
             [0, 0, 0],
         ],
+        selectedTool: '', //TODO constants used for tools
     });
 
     return createStore(reducers, preloadedState,
