@@ -29,7 +29,6 @@ export default function (state = {}, action) {
             const { coordinates, value } = action;
 
             return Object.assign({}, state, {
-                selectedTool: null,
                 boardValues: parseBoardValues(state.boardValues, coordinates, INCREASE),
             });
         }
@@ -38,7 +37,6 @@ export default function (state = {}, action) {
             const { coordinates, value } = action;
 
             return Object.assign({}, state, {
-                selectedTool: null,
                 boardValues:  parseBoardValues(state.boardValues, coordinates, DECREASE),
             });
         }
