@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Square from './Square';
 
-import Square from './Square';
-
 export default class Board extends Component {
-//<Square x="4" y="6" value="2" />
+//
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,7 +12,8 @@ export default class Board extends Component {
 	}
 
 	renderSquare(i) {
-		return <Square value={this.state.squares[i]}  onClick={() => this.handleClick(i)} />;
+		return <Square x={4} y={6} value="2" />;
+		//<Square value={this.state.squares[i]}  onClick={() => this.handleClick(i)} />;
 	}
 	render() {
 		/*const winner = calculateWinner(this.state.squares);
