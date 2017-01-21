@@ -9,6 +9,7 @@ import App from './containers/App';
 
 import createStore from './createStore';
 
+
 const store = createStore();
 
 const render = (Component) => {
