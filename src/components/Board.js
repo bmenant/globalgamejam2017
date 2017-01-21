@@ -5,45 +5,31 @@ export default class Board extends Component {
 //
 	constructor(props) {
 		super(props);
+		console.log(props);
 		this.state = {
 			squares: Array(9).fill(null),
 			xIsNext: true,
 		};
 	}
+	/*findNeighbour(board, x, y){
+		var result = {};
+		if (board[x][y-1]) == null {
 
+		}
+	} wip*/
 	renderSquare(i) {
 		return <Square x={1} y={2} value={2} />;
 		//<Square value={this.state.squares[i]}  onClick={() => this.handleClick(i)} />;
 	}
 	render() {
-		/*const winner = calculateWinner(this.state.squares);
-		let status;
-		if (winner) {
-			status = 'Winner: ' + winner;
-		} else {
-			status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-		}*/
-		return (
-			<div>
-				<div className="status">{status}</div>
-				<div className="board-row">
-					{this.renderSquare(0)}
-					{this.renderSquare(1)}
-					{this.renderSquare(2)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(3)}
-					{this.renderSquare(4)}
-					{this.renderSquare(5)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(6)}
-					{this.renderSquare(7)}
-					{this.renderSquare(8)}
-				</div>
-			</div>
-			);
-	}
+         var board = this.props.boardValues.map((rowArray, indexRow) => {
+        	const squares = rowArray.map((col, indexCol)=> {
+        		return <Square x= {indexRow} y = {indexCol} value={col} />
+        	});
+        	return <div> {squares} </div>;
+        })
+        return <div  id="board">{board}</div>;
+    }
 }
 
 
