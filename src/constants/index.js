@@ -1,2 +1,0 @@
-export const DIGGING_TOOL = 'DIGGING_TOOL';
-export const BUILDING_TOOL = 'BUILDING_TOOL';

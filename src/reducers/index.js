@@ -1,11 +1,9 @@
 import {
     PLAYER_BUILDING,
     PLAYER_DIGGING,
+    PLAYER_SELECTING_TOOL,
 } from '../actions';
 
-
-const INCREASE = 1;
-const DECREASE = -1;
 const ACTION_POWER = 1;
 
 function parseBoardValues(boardValues, coordinates, operator) {
@@ -23,6 +21,9 @@ function parseBoardValues(boardValues, coordinates, operator) {
 export default function (state = {}, action) {
     const { type } = action;
 
+    const INCREASE = 1;
+    const DECREASE = -1;
+
     switch(type) {
 
         case PLAYER_BUILDING: {
@@ -39,6 +40,14 @@ export default function (state = {}, action) {
             return Object.assign({}, state, {
                 boardValues:  parseBoardValues(state.boardValues, coordinates, DECREASE),
             });
+        }
+
+        case PLAYER_SELECTING_TOOL: {
+            const { tool } = action;
+
+            return tool === state.selectedTool ?
+                state :
+                Object.assign({}, state, { selectedTool: tool, });
         }
 
         default: return state;
