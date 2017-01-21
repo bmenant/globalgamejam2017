@@ -72,6 +72,7 @@ module.exports = {
 
         new webpack.DefinePlugin({
             ACTIONS_PER_ROUND: JSON.stringify(process.env.ACTIONS_PER_ROUND),
+            SERVER_ORIGIN: JSON.stringify(process.env.SERVER_ORIGIN),
         }),
     ],
 };
