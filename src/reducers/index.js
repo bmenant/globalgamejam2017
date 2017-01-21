@@ -1,5 +1,6 @@
 import {
-    HELLO_SOMEBODY,
+    PLAYER_BUILDING,
+    PLAYER_DIGGING,
 } from '../actions';
 
 
@@ -8,13 +9,17 @@ export default function (state = {}, action) {
 
     switch(type) {
 
-        case HELLO_SOMEBODY: {
-            const { somebody } = action;
-
-            console.log('Hello' + somebody)
-
+        case PLAYER_BUILDING: {
+            //FIXME change state with reduced value
             return Object.assign({}, state, {
-                somebody,
+
+            });
+        }
+
+        case PLAYER_DIGGING: {
+            //FIXME change state with increased value
+            return Object.assign({}, state, {
+
             });
         }
 
