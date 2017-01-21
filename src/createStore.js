@@ -4,7 +4,7 @@ import reducers from './reducers';
 import {
     DIGGING_TOOL,
     BUILDING_TOOL,
-} from  './constants';
+} from  './actions';
 
 export default function () {
     const preloadedState = Object.freeze({

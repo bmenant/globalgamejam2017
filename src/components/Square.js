@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import {
     DIGGING_TOOL,
     BUILDING_TOOL,
-} from '../constants';
+} from '../actions';
 
 import styles from './Square.css';
 
