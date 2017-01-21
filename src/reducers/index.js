@@ -3,6 +3,7 @@ import {
     PLAYER_DIGGING,
     PLAYER_SELECTING_TOOL,
     INCOMING_WAVE,
+    FETCH_INITIAL_STATE,
 } from '../actions';
 
 const INCREASE = 1;
@@ -57,12 +58,41 @@ export default function (state = {}, action) {
         }
 
         case INCOMING_WAVE: {
-            const { roundId } = action;
+            const { roundId, wavePower } = action;
+            const { boardValues } = state;
+
+            let wavePowerPerColumns =  boardValues[0].map(() => wavePower);
+
+            const newBoardValues = boardValues.map(row => {
+                return row.map((tile, indexTile) => {
+
+                    // There’s a hole or a pile
+                    if (tile !== 0) {
+
+                        // Decrease wave’s power
+                        wavePowerPerColumns[indexTile] = wavePowerPerColumns[indexTile] - 1;
+
+                        //  Water down piles or holes!
+                        if (wavePowerPerColumns[indexTile] >= 0) {
+                            return tile > 0 ?  tile - 1 : tile + 1;
+                        }
+                    }
+
+                    return tile;
+                })
+            });
 
             return Object.assign({}, state, {
+                boardValues: newBoardValues,
                 roundId,
                 remainingActions: ACTIONS_PER_ROUND,
             });
+        }
+
+        case FETCH_INITIAL_STATE: {
+            const { roundId, boardValues } = action;
+
+            return Object.assign({}, state, { boardValues, roundId });
         }
 
         default: return state;

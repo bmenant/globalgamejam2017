@@ -1,30 +1,17 @@
 import { createStore } from 'redux';
 
 import reducers from './reducers';
-import socket from './socket';
-
-const initialStateP = new Promise(resolve => {
-    socket.on('init', ({ board, roundId }) => {
-        console.log('init', board, roundId)
-        resolve({
-            boardValues: board,
-            roundId,
-        });
-    });
-});
 
 export default function () {
-    const preloadedState = {
+    const preloadedState = Object.freeze({
+        boardValues: [],
         selectedTool: null,
+        roundId: null,
         remainingActions: ACTIONS_PER_ROUND,
-    };
-
-    return initialStateP.then(data => {
-        const intialState = Object.freeze(Object.assign(preloadedState, data));
-
-        return createStore(reducers, preloadedState,
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
     });
+
+    return createStore(reducers, preloadedState,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
 export function observeStore(store, onChange) {
