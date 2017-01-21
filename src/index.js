@@ -12,7 +12,6 @@ import io from 'socket.io-client';
 
 var socket = io.connect('');
 
-socket.on('Wave', alert("Coucou"));
 
 const store = createStore();
 
