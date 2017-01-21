@@ -1,9 +1,19 @@
+export const PLAYER_DIGGING = 'DIGGING';
+export const PLAYER_BUILDING = 'BUILDING';
 
-export const HELLO_SOMEBODY = 'HELLO_SOMEBODY';
-
-export function hello(somebody) {
+export function digg(coordinates, value) {
     return {
-        type: HELLO_SOMEBODY,
-        somebody,
-    }
+        type: PLAYER_DIGGING,
+        coordinates,
+        value,
+    };
 }
+
+export function build(coordinates, value) {
+    return {
+        type: PLAYER_BUILDING,
+        coordinates,
+        value,
+    };
+}
+

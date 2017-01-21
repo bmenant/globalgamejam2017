@@ -1,6 +1,10 @@
 import { createStore } from 'redux';
 
 import reducers from './reducers';
+import {
+    DIGGING_TOOL,
+    BUILDING_TOOL,
+} from  './constants';
 
 export default function () {
     const preloadedState = Object.freeze({
@@ -9,6 +13,7 @@ export default function () {
             [0, 0, 0],
             [0, 0, 0],
         ],
+        selectedTool: DIGGING_TOOL, //TODO constants used for tools
     });
 
     return createStore(reducers, preloadedState,
