@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ACTIONS_PER_ROUND=5 webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "repository": "git@github.com:bmenant/globalgamejam2017.git",
   "author": "Benjamin Menant <dev@menant-benjamin.fr>",
