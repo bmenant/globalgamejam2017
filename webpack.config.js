@@ -69,5 +69,10 @@ module.exports = {
 
         new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+
+        new webpack.DefinePlugin({
+            ACTIONS_PER_ROUND: JSON.stringify(process.env.ACTIONS_PER_ROUND),
+            SERVER_ORIGIN: JSON.stringify(process.env.SERVER_ORIGIN),
+        }),
     ],
 };
