@@ -34,7 +34,8 @@ export default class Square extends Component {
     }
 
     render() {
-        const { value } = this.props;
+        const { value, imgSrc } = this.props;
+        // console.log(imgSrc); 
         return (
             <a className={ styles.base } href onClick={this.clickHandler}>
                 {value}
@@ -48,6 +49,7 @@ Square.propTypes = {
     y: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
     selectedTool: PropTypes.string,
+    imgSrc: PropTypes.string,
     digg: PropTypes.func.isRequired,
     build: PropTypes.func.isRequired,
 };
