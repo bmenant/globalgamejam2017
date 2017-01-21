@@ -5,12 +5,36 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 // AppContainer is a necessary wrapper component for HMR
 
+import socket from './socket';
+
+import { triggerWave, fetchInitialState, gameOver } from './actions';
+
 import App from './containers/App';
 
-import createStore from './createStore';
-
+import createStore, { observeStore } from './createStore';
 
 const store = createStore();
+
+socket.on('incoming_wave', ({ roundId, wavePower }) => {
+    if (typeof roundId === 'number') {
+        store.dispatch(triggerWave(roundId, wavePower));
+    }
+});
+
+socket.on('init', (data) => {
+    store.dispatch(fetchInitialState(data));
+});
+
+observeStore(store, ({ boardValues, remainingActions, roundId, isGameOver }) => {
+    if (remainingActions === 0) {
+        socket.emit('max_actions_reached', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+    }
+
+    if (!isGameOver && boardValues.length > 0 && !boardValues.some(row => row.some(tile => tile > 0))) {
+        store.dispatch(gameOver());
+        socket.emit('game_over', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+    }
+});
 
 const render = (Component) => {
     ReactDOM.render(

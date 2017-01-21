@@ -21,14 +21,15 @@ export default class Square extends Component {
         const { x, y, value, selectedTool, digg, build } = this.props;
         const coordonates = { x, y };
 
-
-        switch(selectedTool) {
-            case DIGGING_TOOL:
-                digg(coordonates, value);
-                break;
-            case BUILDING_TOOL:
-                build(coordonates, value);
-                break;
+        if (Math.abs(value) < 3) {
+            switch (selectedTool) {
+                case DIGGING_TOOL:
+                    digg(coordonates, value);
+                    break;
+                case BUILDING_TOOL:
+                    build(coordonates, value);
+                    break;
+            }
         }
     }
 
