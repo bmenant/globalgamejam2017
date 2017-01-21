@@ -1,16 +1,18 @@
 export const PLAYER_DIGGING = 'DIGGING';
 export const PLAYER_BUILDING = 'BUILDING';
 
-export function digg(coordonates) {
+export function digg(coordinates, value) {
     return {
         type: PLAYER_DIGGING,
-        coordonates,
+        coordinates,
+        value,
     };
 }
 
-export function build(coordonates) {
+export function build(coordinates, value) {
     return {
         type: PLAYER_BUILDING,
-        coordonates,
+        coordinates,
+        value,
     };
 }

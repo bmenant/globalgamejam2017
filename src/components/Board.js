@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import Square from '../containers/Square';
 
 export default class Board extends Component {
 //
@@ -12,7 +12,7 @@ export default class Board extends Component {
 	}
 
 	renderSquare(i) {
-		return <Square x={4} y={6} value="2" />;
+		return <Square x={1} y={2} value={2} />;
 		//<Square value={this.state.squares[i]}  onClick={() => this.handleClick(i)} />;
 	}
 	render() {

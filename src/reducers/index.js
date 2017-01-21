@@ -4,22 +4,42 @@ import {
 } from '../actions';
 
 
+const INCREASE = 1;
+const DECREASE = -1;
+const ACTION_POWER = 1;
+
+function parseBoardValues(boardValues, coordinates, operator) {
+    return boardValues.map((row, rowIndex) => {
+        return rowIndex === coordinates.x ?
+            row.map((column, columnIndex) => columnIndex === coordinates.y ?
+                column + operator * ACTION_POWER :
+                column
+            ) : row;
+    });
+
+}
+
+
 export default function (state = {}, action) {
     const { type } = action;
 
     switch(type) {
 
         case PLAYER_BUILDING: {
-            //FIXME change state with reduced value
-            return Object.assign({}, state, {
+            const { coordinates, value } = action;
 
+            return Object.assign({}, state, {
+                selectedTool: null,
+                boardValues: parseBoardValues(state.boardValues, coordinates, INCREASE),
             });
         }
 
         case PLAYER_DIGGING: {
-            //FIXME change state with increased value
-            return Object.assign({}, state, {
+            const { coordinates, value } = action;
 
+            return Object.assign({}, state, {
+                selectedTool: null,
+                boardValues:  parseBoardValues(state.boardValues, coordinates, DECREASE),
             });
         }
 
