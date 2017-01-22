@@ -13,13 +13,13 @@ export default function Toolbox(props) {
 
     return (
         <header className={ styles.base }>
-            <div className={styles.diggIcon + (selectedTool === DIGGING_TOOL ? ' active' : '')} />
+            <div className={styles.diggIcon + ' ' + (selectedTool === DIGGING_TOOL ? styles.diggIconActive : '')} />
 
             <div className={styles.actionsCount}>
                 <span className={globalStyles['digit_' + remainingActions] } />
             </div>
 
-            <div className={styles.buildIcon + (selectedTool === BUILDING_TOOL ? ' active' : '')} />
+            <div className={styles.buildIcon + ' ' + (selectedTool === BUILDING_TOOL ? styles.buildIconActive : '')} />
         </header>
     );
 }

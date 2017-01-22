@@ -169,9 +169,9 @@ export default class Board extends Component {
         	return <div className={ styles.row } key={indexRow}> {squares} </div>;
         });
         return (
-        	<section>
+        	<section className={styles.base}>
                 <div className={styles.container}>{board}</div>
-				{ isGameOver && <div>GAME OVER</div> }
+				{ isGameOver && <div className={ styles.gameOver }>GAME OVER</div> }
 			</section>
 		);
     }

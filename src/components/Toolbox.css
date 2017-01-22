@@ -1,6 +1,7 @@
 .base {
    display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .icon {
@@ -12,20 +13,20 @@
 
 .buildIcon {
    composes: icon;
-   /*background-image: url();*/
+   background-image: url(../assets/Icons/Bucket_not_usable.png);
 }
 
-.buildIcon.active {
-   /*background-image: url();*/
+.buildIconActive {
+    background-image: url(../assets/Icons/Bucket_selected.png);
 }
 
 .diggIcon {
    composes: icon;
-   /*background-image: url();*/
+    background-image: url(../assets/Icons/Shovel_not_usable.png);
 }
 
-.diggIcon.active {
-   /*background-image: url();*/
+.diggIconActive {
+    background-image: url(../assets/Icons/Shovel_selected.png);
 }
 
 .actionsCount {
