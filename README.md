@@ -13,8 +13,11 @@ http://ggj2017.sans-nom.xyz/
 #### Getting started
 Build local developement.
 
-Start local client development server: POWER_WAVE=2 ACTIONS_PER_ROUND=5 SOCKET_PORT=9090 SERVER_ORIGIN=http://localhost:9090 yarn run build
+- Start local client development server: `WAVE_POWER=4 ACTIONS_PER_ROUND=8 SOCKET_PORT=9090 SERVER_ORIGIN=http://localhost:9090 yarn run watch`
 
-Start local socket server: WAVE_POWER=2 ACTIONS_PER_ROUND=5 SOCKET_PORT=9090 SERVER_ORIGIN=http://localhost:9090 yarn start
+- To build a production bundle: `WAVE_POWER=4 ACTIONS_PER_ROUND=8 SOCKET_PORT=9090 SERVER_ORIGIN=http://localhost:9090 yarn run build`
 
-Open your browser to http://localhost:8080 <b>(not 9090 !)</b>
+- Start local socket server: `WAVE_POWER=4 ACTIONS_PER_ROUND=8 SOCKET_PORT=9090 SERVER_ORIGIN=http://localhost:9090 yarn start`
+
+
+Open your browser to http://localhost:8080 <b>(not 9090!)</b>
