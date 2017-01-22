@@ -7,43 +7,52 @@ import { AppContainer } from 'react-hot-loader';
 
 import socket from './socket';
 
-import { triggerWave } from './actions';
+import { triggerWave, fetchInitialState, gameOver } from './actions';
 
 import App from './containers/App';
 
 import createStore, { observeStore } from './createStore';
 
-createStore().then(store => {
-    socket.on('incoming_wave', ({ roundId }) => {
-        if (typeof roundId === 'number') {
-            store.dispatch(triggerWave(roundId));
-        }
-    });
+const store = createStore();
 
-    observeStore(store, ({ remainingActions, roundId }) => {
-        if (remainingActions === 0) {
-            socket.emit('finished', roundId);
-        }
-    });
-    const render = (Component) => {
-        ReactDOM.render(
-            <AppContainer>
-                <Provider store={store}>
-                    <Component/>
-                </Provider>
-            </AppContainer>,
-            document.getElementById('root')
-        );
-    };
-
-    render(App);
-
-    // Hot Module Replacement API
-    if (module.hot) {
-        module.hot.accept('./containers/App', () => {
-            const NewApp = require('./containers/App').default
-            render(NewApp)
-        });
+socket.on('incoming_wave', ({ roundId, wavePower }) => {
+    if (typeof roundId === 'number') {
+        store.dispatch(triggerWave(roundId, wavePower));
     }
 });
 
+socket.on('init', (data) => {
+    store.dispatch(fetchInitialState(data));
+});
+
+observeStore(store, ({ boardValues, remainingActions, roundId, isGameOver }) => {
+    if (remainingActions === 0) {
+        socket.emit('max_actions_reached', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+    }
+
+    if (!isGameOver && boardValues.length > 0 && !boardValues.some(row => row.some(tile => tile > 0))) {
+        store.dispatch(gameOver());
+        socket.emit('game_over', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+    }
+});
+
+const render = (Component) => {
+    ReactDOM.render(
+        <AppContainer>
+            <Provider store={store}>
+                <Component/>
+            </Provider>
+        </AppContainer>,
+        document.getElementById('root')
+    );
+};
+
+render(App);
+
+// Hot Module Replacement API
+if (module.hot) {
+    module.hot.accept('./containers/App', () => {
+        const NewApp = require('./containers/App').default
+        render(NewApp)
+    });
+}

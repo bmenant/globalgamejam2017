@@ -21,22 +21,25 @@ export default class Square extends Component {
         const { x, y, value, selectedTool, digg, build } = this.props;
         const coordonates = { x, y };
 
-
-        switch(selectedTool) {
-            case DIGGING_TOOL:
-                digg(coordonates, value);
-                break;
-            case BUILDING_TOOL:
-                build(coordonates, value);
-                break;
+        if (Math.abs(value) < 3) {
+            switch (selectedTool) {
+                case DIGGING_TOOL:
+                    digg(coordonates, value);
+                    break;
+                case BUILDING_TOOL:
+                    build(coordonates, value);
+                    break;
+            }
         }
     }
 
     render() {
-        const { value } = this.props;
+        const { value, imgSrc } = this.props;
         return (
-            <a className={ styles.base } href onClick={this.clickHandler}>
-                {value}
+            <a className={ styles.tile } href onClick={this.clickHandler}>
+                <span className={ styles[imgSrc] }>
+                    {value}
+                </span>
             </a>
         );
     }
@@ -47,6 +50,7 @@ Square.propTypes = {
     y: PropTypes.number.isRequired,
     value: PropTypes.number.isRequired,
     selectedTool: PropTypes.string,
+    imgSrc: PropTypes.string,
     digg: PropTypes.func.isRequired,
     build: PropTypes.func.isRequired,
 };
