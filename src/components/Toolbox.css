@@ -12,20 +12,24 @@
 }
 
 .buildIcon {
-   composes: icon;
-   background-image: url(../assets/Icons/Bucket_not_usable.png);
+    composes: icon;
+    opacity: .5;
+    background-image: url(../assets/Icons/Bucket_not_usable.png);
 }
 
 .buildIconActive {
+    opacity: 1;
     background-image: url(../assets/Icons/Bucket_selected.png);
 }
 
 .diggIcon {
-   composes: icon;
+    composes: icon;
+    opacity: .5;
     background-image: url(../assets/Icons/Shovel_not_usable.png);
 }
 
 .diggIconActive {
+    opacity: 1;
     background-image: url(../assets/Icons/Shovel_selected.png);
 }
 
