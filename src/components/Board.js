@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import Square from '../containers/Square';
 
+
+
 export default class Board extends Component {
 	
-	sum(tab){
+	sum(tab) {
 		var res = 0;
 		for(let i = 0; i<tab.length;i++){
 			res+=tab[i];
 		}
 		return res;
 	}
+
 	/**
 	* return the pictureName of the square with coordinates i, j 
 	*/
@@ -54,8 +57,6 @@ export default class Board extends Component {
 					positionOfNeighbours[3] = 1;
 				}
 			}
-			console.log(positionOfNeighbours,this.sum(positionOfNeighbours))
-			// pictureName += str(positionOfNeighbours)
 
 			// 4 murs
 			if (this.sum(positionOfNeighbours) == 0) {
@@ -152,12 +153,17 @@ export default class Board extends Component {
 	render() {
 	    const { boardValues, isGameOver } = this.props;
 
-         var board = boardValues.map((rowArray, indexRow) => {
+         const board = boardValues.map((rowArray, indexRow) => {
         	const squares = rowArray.map((col, indexCol)=> {
-        		return <Square x= {indexRow} y = {indexCol} value={col} imgSrc={this.squareToPicture(indexRow,indexCol)} />
+        		return <Square
+					key={indexCol}
+					x= {indexRow}
+					y = {indexCol}
+					value={col}
+					imgSrc={this.squareToPicture(indexRow,indexCol)} />
         	});
-        	return <div> {squares} </div>;
-        })
+        	return <div key={indexRow}> {squares} </div>;
+        });
         return (
         	<section>
                 <div>{board}</div>
