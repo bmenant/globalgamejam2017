@@ -22,4 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background: url(../assets/GAME_OVER.png) no-repeat center;
+    background-size: 50%;
 }
