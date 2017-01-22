@@ -11,6 +11,9 @@ You have to lauchn the game on a web browser.
 When the game is lauchned you have to <b>click</b> on the beach to dig or build. The game switchs automaticaly between the digTool and the buildTool.
 You can accumulate at most 3 sandpile's levels or 3 hole's depth's levels in one square.
 
+#### The countdowns /!\
+2 countdowns 1 effect... find it !
+
 #### Victory !
 You loose the game when you have no more pile of sand on your part of the beach.
 Be the last player who survive to the waves' assaults ! 
