@@ -1,6 +1,7 @@
 # Global Game Jam 2017
 ## Dig and Build 2 : the Return of the Wave
 ### How to play like straight away ?
+<b>!!! CLICK !!!</b>
 http://ggj2017.sans-nom.xyz/
 
 ### How to build the game ?
