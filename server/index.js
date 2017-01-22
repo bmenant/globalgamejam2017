@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var server = app.listen(4000);
+var server = app.listen(process.env.SOCKET_PORT);
 var io = require('socket.io').listen(server);
 
 app.use(bodyParser.json())
@@ -23,9 +23,13 @@ app.use(bodyParser.json())
     gestion des gets
 ******************************************************************************************************/
 
+const options = { root: __dirname + '/../dist/' };
 
 app.get('/', function (req, res) {
-	res.sendfile(__dirname + '/views/ex11.html');
+	res.sendFile('/index.html', options);
+});
+app.get('/bundle.js', function (req, res) {
+    res.sendFile('/bundle.js', options);
 });
 
 function Games(channel){
@@ -110,7 +114,3 @@ io.sockets.on('connection', function (socket) {
       
 	});
 });
-
-
-
-
