@@ -1,5 +1,117 @@
-.base {
-    /*display: block;*/
-    margin: 1em;
-    padding: 1em;
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 24px;
 }
+
+.tile > span {
+    flex: 1;
+
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+    text-indent: -99999em;
+}
+
+.empty { background-image: url(../assets/TILES/empty.png); }
+.hole_1_0_0 {background-image: url(../assets/TILES/hole_1_0_0.png);}
+.hole_1_1_0 { background-image: url(../assets/TILES/hole_1_1_0.png); }
+.hole_1_1_180 { background-image: url(../assets/TILES/hole_1_1_180.png); }
+.hole_1_1_270 { background-image: url(../assets/TILES/hole_1_1_270.png); }
+.hole_1_1_90 { background-image: url(../assets/TILES/hole_1_1_90.png); }
+.hole_1_2_angle_0 { background-image: url(../assets/TILES/hole_1_2_angle_0.png); }
+.hole_1_2_angle_180 { background-image: url(../assets/TILES/hole_1_2_angle_180.png); }
+.hole_1_2_angle_270 { background-image: url(../assets/TILES/hole_1_2_angle_270.png); }
+.hole_1_2_angle_90 { background-image: url(../assets/TILES/hole_1_2_angle_90.png); }
+.hole_1_2_couloir_0 { background-image: url(../assets/TILES/hole_1_2_couloir_0.png); }
+.hole_1_2_couloir_90 { background-image: url(../assets/TILES/hole_1_2_couloir_90.png); }
+.hole_1_3_0 { background-image: url(../assets/TILES/hole_1_3_0.png); }
+.hole_1_3_180 { background-image: url(../assets/TILES/hole_1_3_180.png); }
+.hole_1_3_270 { background-image: url(../assets/TILES/hole_1_3_270.png); }
+.hole_1_3_90 { background-image: url(../assets/TILES/hole_1_3_90.png); }
+.hole_1_4_0 { background-image: url(../assets/TILES/hole_1_4_0.png); }
+.hole_2_0_0 {background-image: url(../assets/TILES/hole_2_0_0.png);}
+.hole_2_1_0 { background-image: url(../assets/TILES/hole_2_1_0.png); }
+.hole_2_1_180 { background-image: url(../assets/TILES/hole_2_1_180.png); }
+.hole_2_1_270 { background-image: url(../assets/TILES/hole_2_1_270.png); }
+.hole_2_1_90 { background-image: url(../assets/TILES/hole_2_1_90.png); }
+.hole_2_2_angle_0 { background-image: url(../assets/TILES/hole_2_2_angle_0.png); }
+.hole_2_2_angle_180 { background-image: url(../assets/TILES/hole_2_2_angle_180.png); }
+.hole_2_2_angle_270 { background-image: url(../assets/TILES/hole_2_2_angle_270.png); }
+.hole_2_2_angle_90 { background-image: url(../assets/TILES/hole_2_2_angle_90.png); }
+.hole_2_2_couloir_0 { background-image: url(../assets/TILES/hole_2_2_couloir_0.png); }
+.hole_2_2_couloir_90 { background-image: url(../assets/TILES/hole_2_2_couloir_90.png); }
+.hole_2_3_0 { background-image: url(../assets/TILES/hole_2_3_0.png); }
+.hole_2_3_180 { background-image: url(../assets/TILES/hole_2_3_180.png); }
+.hole_2_3_270 { background-image: url(../assets/TILES/hole_2_3_270.png); }
+.hole_2_3_90 { background-image: url(../assets/TILES/hole_2_3_90.png); }
+.hole_2_4_0 { background-image: url(../assets/TILES/hole_2_4_0.png); }
+.hole_3_0_0 {background-image: url(../assets/TILES/hole_3_0_0.png);}
+.hole_3_1_0 { background-image: url(../assets/TILES/hole_3_1_0.png); }
+.hole_3_1_180 { background-image: url(../assets/TILES/hole_3_1_180.png); }
+.hole_3_1_270 { background-image: url(../assets/TILES/hole_3_1_270.png); }
+.hole_3_1_90 { background-image: url(../assets/TILES/hole_3_1_90.png); }
+.hole_3_2_angle_0 { background-image: url(../assets/TILES/hole_3_2_angle_0.png); }
+.hole_3_2_angle_180 { background-image: url(../assets/TILES/hole_3_2_angle_180.png); }
+.hole_3_2_angle_270 { background-image: url(../assets/TILES/hole_3_2_angle_270.png); }
+.hole_3_2_angle_90 { background-image: url(../assets/TILES/hole_3_2_angle_90.png); }
+.hole_3_2_couloir_0 { background-image: url(../assets/TILES/hole_3_2_couloir_0.png); }
+.hole_3_2_couloir_90 { background-image: url(../assets/TILES/hole_3_2_couloir_90.png); }
+.hole_3_3_0 { background-image: url(../assets/TILES/hole_3_3_0.png); }
+.hole_3_3_180 { background-image: url(../assets/TILES/hole_3_3_180.png); }
+.hole_3_3_270 { background-image: url(../assets/TILES/hole_3_3_270.png); }
+.hole_3_3_90 { background-image: url(../assets/TILES/hole_3_3_90.png); }
+.hole_3_4_0 { background-image: url(../assets/TILES/hole_3_4_0.png); }
+.pile_1_0_0 {background-image: url(../assets/TILES/pile_1_0_0.png);}
+.pile_1_1_0 { background-image: url(../assets/TILES/pile_1_1_0.png); }
+.pile_1_1_180 { background-image: url(../assets/TILES/pile_1_1_180.png); }
+.pile_1_1_270 { background-image: url(../assets/TILES/pile_1_1_270.png); }
+.pile_1_1_90 { background-image: url(../assets/TILES/pile_1_1_90.png); }
+.pile_1_2_angle_0 { background-image: url(../assets/TILES/pile_1_2_angle_0.png); }
+.pile_1_2_angle_180 { background-image: url(../assets/TILES/pile_1_2_angle_180.png); }
+.pile_1_2_angle_270 { background-image: url(../assets/TILES/pile_1_2_angle_270.png); }
+.pile_1_2_angle_90 { background-image: url(../assets/TILES/pile_1_2_angle_90.png); }
+.pile_1_2_couloir_0 { background-image: url(../assets/TILES/pile_1_2_couloir_0.png); }
+.pile_1_2_couloir_90 { background-image: url(../assets/TILES/pile_1_2_couloir_90.png); }
+.pile_1_3_0 { background-image: url(../assets/TILES/pile_1_3_0.png); }
+.pile_1_3_180 { background-image: url(../assets/TILES/pile_1_3_180.png); }
+.pile_1_3_270 { background-image: url(../assets/TILES/pile_1_3_270.png); }
+.pile_1_3_90 { background-image: url(../assets/TILES/pile_1_3_90.png); }
+.pile_1_4_0 { background-image: url(../assets/TILES/pile_1_4_0.png); }
+.pile_2_0_0 {background-image: url(../assets/TILES/pile_2_0_0.png);}
+.pile_2_1_0 { background-image: url(../assets/TILES/pile_2_1_0.png); }
+.pile_2_1_180 { background-image: url(../assets/TILES/pile_2_1_180.png); }
+.pile_2_1_270 { background-image: url(../assets/TILES/pile_2_1_270.png); }
+.pile_2_1_90 { background-image: url(../assets/TILES/pile_2_1_90.png); }
+.pile_2_2_angle_0 { background-image: url(../assets/TILES/pile_2_2_angle_0.png); }
+.pile_2_2_angle_180 { background-image: url(../assets/TILES/pile_2_2_angle_180.png); }
+.pile_2_2_angle_270 { background-image: url(../assets/TILES/pile_2_2_angle_270.png); }
+.pile_2_2_angle_90 { background-image: url(../assets/TILES/pile_2_2_angle_90.png); }
+.pile_2_2_couloir_0 { background-image: url(../assets/TILES/pile_2_2_couloir_0.png); }
+.pile_2_2_couloir_90 { background-image: url(../assets/TILES/pile_2_2_couloir_90.png); }
+.pile_2_3_0 { background-image: url(../assets/TILES/pile_2_3_0.png); }
+.pile_2_3_180 { background-image: url(../assets/TILES/pile_2_3_180.png); }
+.pile_2_3_270 { background-image: url(../assets/TILES/pile_2_3_270.png); }
+.pile_2_3_90 { background-image: url(../assets/TILES/pile_2_3_90.png); }
+.pile_2_4_0 { background-image: url(../assets/TILES/pile_2_4_0.png); }
+.pile_3_0_0 {background-image: url(../assets/TILES/pile_3_0_0.png);}
+.pile_3_1_0 { background-image: url(../assets/TILES/pile_3_1_0.png); }
+.pile_3_1_180 { background-image: url(../assets/TILES/pile_3_1_180.png); }
+.pile_3_1_270 { background-image: url(../assets/TILES/pile_3_1_270.png); }
+.pile_3_1_90 { background-image: url(../assets/TILES/pile_3_1_90.png); }
+.pile_3_2_angle_0 { background-image: url(../assets/TILES/pile_3_2_angle_0.png); }
+.pile_3_2_angle_180 { background-image: url(../assets/TILES/pile_3_2_angle_180.png); }
+.pile_3_2_angle_270 { background-image: url(../assets/TILES/pile_3_2_angle_270.png); }
+.pile_3_2_angle_90 { background-image: url(../assets/TILES/pile_3_2_angle_90.png); }
+.pile_3_2_couloir_0 { background-image: url(../assets/TILES/pile_3_2_couloir_0.png); }
+.pile_3_2_couloir_90 { background-image: url(../assets/TILES/pile_3_2_couloir_90.png); }
+.pile_3_3_0 { background-image: url(../assets/TILES/pile_3_3_0.png); }
+.pile_3_3_180 { background-image: url(../assets/TILES/pile_3_3_180.png); }
+.pile_3_3_270 { background-image: url(../assets/TILES/pile_3_3_270.png); }
+.pile_3_3_90 { background-image: url(../assets/TILES/pile_3_3_90.png); }
+.pile_3_4_0 { background-image: url(../assets/TILES/pile_3_4_0.png); }
+
+

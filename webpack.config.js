@@ -60,6 +60,13 @@ module.exports = {
                     'postcss-loader',
                 ],
             },
+            {
+                test: /.*\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    'url-loader',
+                    'image-webpack-loader',
+                ]
+            }
         ],
     },
 

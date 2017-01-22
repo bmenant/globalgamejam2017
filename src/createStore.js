@@ -5,7 +5,11 @@ import reducers from './reducers';
 
 export default function () {
     const preloadedState = Object.freeze({
-        boardValues: [],
+        boardValues: [
+            [0,1,0],
+            [1,1,1],
+            [0,1,0]
+        ],
         selectedTool: DIGGING_TOOL,
         roundId: null,
         remainingActions: ACTIONS_PER_ROUND,
