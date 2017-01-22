@@ -35,9 +35,8 @@ export default class Square extends Component {
 
     render() {
         const { value, imgSrc } = this.props;
-        // console.log(imgSrc); 
         return (
-            <a className={ styles.base } href onClick={this.clickHandler}>
+            <a style={{ backgroundImage: `url(/assets/${imgSrc})` }} className={ styles.base } href onClick={this.clickHandler}>
                 {value}
             </a>
         );
