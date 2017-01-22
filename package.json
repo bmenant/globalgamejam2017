@@ -8,7 +8,7 @@
   },
   "repository": "git@github.com:bmenant/globalgamejam2017.git",
   "author": "Benjamin Menant <dev@menant-benjamin.fr>",
-  "license": "GPLv3",
+  "license": "CC-by-nc-sa",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
