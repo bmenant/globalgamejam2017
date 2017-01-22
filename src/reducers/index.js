@@ -62,7 +62,7 @@ export default function (state = {}, action) {
 
             return tool === state.selectedTool ?
                 state :
-                Object.assign({}, state, { selectedTool: tool, });
+                Object.assign({}, state, { selectedTool: tool });
         }
 
         case INCOMING_WAVE: {
