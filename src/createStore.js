@@ -10,6 +10,7 @@ export default function () {
         roundId: null,
         remainingActions: ACTIONS_PER_ROUND,
         isGameOver: false,
+        isWaveInProgress: false,
     });
 
     return createStore(reducers, preloadedState,

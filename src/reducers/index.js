@@ -7,6 +7,7 @@ import {
     INCOMING_WAVE,
     FETCH_INITIAL_STATE,
     GAME_OVER,
+    TOGGLE_WAVE,
 } from '../actions';
 
 const INCREASE = 1;
@@ -93,6 +94,7 @@ export default function (state = {}, action) {
                 boardValues: newBoardValues,
                 roundId,
                 remainingActions: ACTIONS_PER_ROUND,
+                isWaveInProgress: true,
             });
         }
 
@@ -104,6 +106,10 @@ export default function (state = {}, action) {
 
         case GAME_OVER: {
             return Object.assign({}, state, { isGameOver: true });
+        }
+
+        case TOGGLE_WAVE: {
+            return Object.assign({}, state, { isWaveInProgress: !state.isWaveInProgress });
         }
 
         default: return state;
