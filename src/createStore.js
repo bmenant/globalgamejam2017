@@ -9,6 +9,7 @@ export default function () {
         selectedTool: DIGGING_TOOL,
         roundId: null,
         remainingActions: ACTIONS_PER_ROUND,
+        isGameStarted: false,
         isGameOver: false,
         isWaveInProgress: false,
     });

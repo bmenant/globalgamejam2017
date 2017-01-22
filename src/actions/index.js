@@ -16,6 +16,8 @@ export const FETCH_INITIAL_STATE = 'FETCH_INITIAL_STATE';
 export const GAME_OVER = 'GAME_OVER';
 export const TOGGLE_WAVE = 'TOGGLE_WAVE';
 
+export const START_GAME = 'START_GAME';
+
 export function digg(coordinates, value) {
     return {
         type: PLAYER_DIGGING,
@@ -64,5 +66,12 @@ export function gameOver() {
 export function toggleWave() {
     return {
         type: TOGGLE_WAVE,
+    }
+}
+
+export function startGame(channel) {
+    socket.emit('register', { channel });
+    return {
+        type: START_GAME,
     }
 }

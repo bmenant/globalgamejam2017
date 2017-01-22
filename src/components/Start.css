@@ -1,0 +1,63 @@
+.base {
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playButton {
+    all: initial;
+    display: block;
+    height: 60px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+
+    overflow: hidden;
+    text-indent: -9999em;
+
+    background: url(../assets/Start_button_idle.png) no-repeat center;
+}
+
+.playButton:hover,
+.playButton:focus {
+   opacity: .9;
+}
+
+.playButton:active {
+    background: url(../assets/Start_button_pushed.png) no-repeat center;
+}
+
+.input {
+    font-size: 1.3em;
+    line-height: 2;
+    padding: 0 1em;
+    border: solid 2px rgba(0,0,0, .8);
+    border-radius: 5px;
+}
+
+.logo {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    width: 100%;
+    height: calc(100vh - 360px);
+
+    background: url(../assets/LOGO.png) no-repeat center;
+    background-size: contain;
+}
+
+.title {
+    font-family: monospace;
+    color: rgba(0,0,0, .8);
+    font-size: 1.2em;
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.container {
+    display: block;
+}
