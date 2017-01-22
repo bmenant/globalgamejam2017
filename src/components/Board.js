@@ -171,7 +171,7 @@ export default class Board extends Component {
         return (
         	<section className={styles.base}>
                 <div className={styles.container}>{board}</div>
-				{ isGameOver && <div className={ styles.gameOver }>GAME OVER</div> }
+				{ isGameOver && <div className={ styles.gameOver } /> }
 			</section>
 		);
     }
