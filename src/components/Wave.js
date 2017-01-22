@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 const INITIAL_COUNTDOWN = 9;
 
+import styles from './Wave.css';
+import globalStyles from './App.css';
+
 export default class Wave extends Component {
 
     constructor(props) {
@@ -39,9 +42,12 @@ export default class Wave extends Component {
         const { countdown } = this.state;
 
         return (
-            <div className={ isWaveInProgress ? 'active' : 'inactive'}>
-                { isWaveInProgress ? undefined : countdown }
-            </div>
+            <footer className={ styles.container }>
+                <div className={ styles.tide + (isWaveInProgress ? (' ' + styles.highTide) : '')}>
+                    <div className={ styles.tideMask } />
+                </div>
+                { !isWaveInProgress && <span className={ globalStyles['digit_' + countdown] } /> }
+            </footer>
         );
     }
 }

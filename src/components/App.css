@@ -1,7 +1,40 @@
 .base {
-    text-size-adjust: none;
-    font-family: helvetica, arial, sans-serif;
-    line-height: 200%;
-    color: red;
-    padding: 6px 20px 30px;
 }
+
+:global(:root) {
+    /*background: #FDAE67;*/
+    background: #F2955C;
+}
+
+:global(body) {
+    margin: 0;
+}
+
+
+.digit_0,
+.digit_1,
+.digit_2,
+.digit_3,
+.digit_4,
+.digit_5,
+.digit_6,
+.digit_7,
+.digit_8,
+.digit_9 {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: no-repeat center;
+}
+
+
+.digit_0 { background-image: url(../assets/Numbers/Numbers_0.png); }
+.digit_1 { background-image: url(../assets/Numbers/Numbers_1.png); }
+.digit_2 { background-image: url(../assets/Numbers/Numbers_2.png); }
+.digit_3 { background-image: url(../assets/Numbers/Numbers_3.png); }
+.digit_4 { background-image: url(../assets/Numbers/Numbers_4.png); }
+.digit_5 { background-image: url(../assets/Numbers/Numbers_5.png); }
+.digit_6 { background-image: url(../assets/Numbers/Numbers_6.png); }
+.digit_7 { background-image: url(../assets/Numbers/Numbers_7.png); }
+.digit_8 { background-image: url(../assets/Numbers/Numbers_8.png); }
+.digit_9 { background-image: url(../assets/Numbers/Numbers_9.png); }

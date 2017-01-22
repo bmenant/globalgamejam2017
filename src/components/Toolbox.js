@@ -4,18 +4,22 @@ import {
     BUILDING_TOOL,
 } from '../actions';
 
+import styles from './Toolbox.css';
+
+import globalStyles from './App.css';
 
 export default function Toolbox(props) {
-    const { select, selectedTool } = props;
+    const { select, selectedTool, remainingActions } = props;
 
     return (
-        <div>
-            <div>
-                Digg { selectedTool === DIGGING_TOOL ? '(selected)' : '' }
+        <header className={ styles.base }>
+            <div className={styles.diggIcon + ' ' + (selectedTool === DIGGING_TOOL ? styles.diggIconActive : '')} />
+
+            <div className={styles.actionsCount}>
+                <span className={globalStyles['digit_' + remainingActions] } />
             </div>
-            <div>
-                Build { selectedTool === BUILDING_TOOL ? '(selected)' : '' }
-            </div>
-        </div>
+
+            <div className={styles.buildIcon + ' ' + (selectedTool === BUILDING_TOOL ? styles.buildIconActive : '')} />
+        </header>
     );
 }

@@ -62,7 +62,7 @@ export default function (state = {}, action) {
 
             return tool === state.selectedTool ?
                 state :
-                Object.assign({}, state, { selectedTool: tool, });
+                Object.assign({}, state, { selectedTool: tool });
         }
 
         case INCOMING_WAVE: {
@@ -71,7 +71,7 @@ export default function (state = {}, action) {
 
             let wavePowerPerColumns =  boardValues[0].map(() => wavePower);
 
-            const newBoardValues = boardValues.map(row => {
+            const newBoardValues = boardValues.slice().reverse().map(row => {
                 return row.map((tile, indexTile) => {
 
                     // There’s a hole or a pile
@@ -88,7 +88,7 @@ export default function (state = {}, action) {
 
                     return tile;
                 })
-            });
+            }).reverse();
 
             return Object.assign({}, state, {
                 boardValues: newBoardValues,

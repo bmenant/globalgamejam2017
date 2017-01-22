@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import Toolbox from '../components/Toolbox';
 import { selectTool } from '../actions';
 
-function mapStateToProps({ selectedTool }, ownProps) {
+function mapStateToProps({ selectedTool, remainingActions }, ownProps) {
     return Object.assign({}, ownProps, {
         selectedTool,
+        remainingActions,
     });
 }
 
