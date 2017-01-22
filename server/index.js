@@ -11,6 +11,8 @@ var app = express();
 var server = app.listen(process.env.SOCKET_PORT);
 var io = require('socket.io').listen(server);
 
+const maps = require('./map');
+
 app.use(bodyParser.json())
 
 
@@ -53,19 +55,7 @@ function Games(channel){
   }
 
   this.initialise = function(clientid){
-     io.sockets.connected[clientid].emit("init", {board: [
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,3,3,3,3,3,0,0],
-
-      [0,0,3,0,0,0,3,0,0],
-      [0,0,3,0,1,0,3,0,0],
-      [0,0,3,0,0,0,3,0,0],
-
-      [0,0,3,3,3,3,3,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0]
-      ], roundId: self.idRound});
+     io.sockets.connected[clientid].emit("init", {board: maps.mapINVADERSOFTHESPAAAAACE, roundId: self.idRound});
   }
 }
 
