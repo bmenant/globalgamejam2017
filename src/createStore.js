@@ -6,9 +6,15 @@ import reducers from './reducers';
 export default function () {
     const preloadedState = Object.freeze({
         boardValues: [
-            [0,1,0],
-            [1,1,1],
-            [0,1,0]
+            [0,1,0,0,0,0,0,0,1],
+            [1,1,1,0,0,1,0,0,0],
+            [1,1,1,0,0,0,0,0,0],
+            [1,1,1,0,0,1,0,0,1],
+            [1,1,1,0,0,0,0,0,0],
+            [0,1,0,0,0,1,0,0,1],
+            [1,1,1,0,0,1,0,0,1],
+            [1,1,1,0,0,0,0,0,0],
+            [0,1,0,0,0,1,0,0,1],
         ],
         selectedTool: DIGGING_TOOL,
         roundId: null,

@@ -1,0 +1,32 @@
+.base {
+   display: flex;
+    justify-content: center;
+}
+
+.icon {
+   display: block;
+   width: 60px;
+   height: 60px;
+    background: center no-repeat;
+}
+
+.buildIcon {
+   composes: icon;
+   /*background-image: url();*/
+}
+
+.buildIcon.active {
+   /*background-image: url();*/
+}
+
+.diggIcon {
+   composes: icon;
+   /*background-image: url();*/
+}
+
+.diggIcon.active {
+   /*background-image: url();*/
+}
+
+.actionsCount {
+}
