@@ -4,9 +4,10 @@ import styles from './App.css';
 import Board from '../containers/Board';
 import Toolbox from '../containers/Toolbox';
 import Wave from '../containers/Wave';
+import Start from '../containers/Start';
 
-const App = (props) => {
-    return (
+const App = ({ isGameStarted }) => {
+    return isGameStarted ? (
         <div className={styles.base}>
 
             <Toolbox />
@@ -15,6 +16,10 @@ const App = (props) => {
 
             <Wave />
 
+        </div>
+    ) : (
+        <div className={ styles.overlay }>
+            <Start />
         </div>
     );
 };

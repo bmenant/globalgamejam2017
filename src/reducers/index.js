@@ -8,6 +8,7 @@ import {
     FETCH_INITIAL_STATE,
     GAME_OVER,
     TOGGLE_WAVE,
+    START_GAME,
 } from '../actions';
 
 const INCREASE = 1;
@@ -110,6 +111,10 @@ export default function (state = {}, action) {
 
         case TOGGLE_WAVE: {
             return Object.assign({}, state, { isWaveInProgress: !state.isWaveInProgress });
+        }
+
+        case START_GAME: {
+            return Object.assign({}, state, { isGameStarted: true });
         }
 
         default: return state;
