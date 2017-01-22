@@ -27,12 +27,12 @@ socket.on('init', (data) => {
 
 observeStore(store, ({ boardValues, remainingActions, roundId, isGameOver }) => {
     if (remainingActions === 0) {
-        socket.emit('max_actions_reached', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+        socket.emit('max_actions_reached', { roundId });
     }
 
     if (!isGameOver && boardValues.length > 0 && !boardValues.some(row => row.some(tile => tile > 0))) {
         store.dispatch(gameOver());
-        socket.emit('game_over', { roundId }); //TODO ASK CLEM TO CHANGE THIS SERVER SIDE
+        socket.emit('game_over', { roundId });
     }
 });
 

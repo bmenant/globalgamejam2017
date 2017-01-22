@@ -33,7 +33,7 @@ module.exports = {
     devtool: 'inline-source-map',
 
     devServer: {
-        hot: true,
+        hot: process.env.NODE_ENV !== 'production',
         // enable HMR on the server
 
         contentBase: resolve(__dirname, 'dist'),
