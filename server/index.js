@@ -8,8 +8,10 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-var server = app.listen(4000);
+var server = app.listen(process.env.SOCKET_PORT);
 var io = require('socket.io').listen(server);
+
+const maps = require('./map');
 
 app.use(bodyParser.json())
 
@@ -23,9 +25,13 @@ app.use(bodyParser.json())
     gestion des gets
 ******************************************************************************************************/
 
+const options = { root: __dirname + '/../dist/' };
 
 app.get('/', function (req, res) {
-	res.sendfile(__dirname + '/views/ex11.html');
+	res.sendFile('/index.html', options);
+});
+app.get('/bundle.js', function (req, res) {
+    res.sendFile('/bundle.js', options);
 });
 
 function Games(channel){
@@ -49,19 +55,7 @@ function Games(channel){
   }
 
   this.initialise = function(clientid){
-     io.sockets.connected[clientid].emit("init", {board: [
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,3,3,3,3,3,0,0],
-
-      [0,0,3,0,0,0,3,0,0],
-      [0,0,3,0,1,0,3,0,0],
-      [0,0,3,0,0,0,3,0,0],
-
-      [0,0,3,3,3,3,3,0,0],
-      [0,0,0,0,0,0,0,0,0],
-      [0,0,0,0,0,0,0,0,0]
-      ], roundId: self.idRound});
+     io.sockets.connected[clientid].emit("init", {board: maps.mapINVADERSOFTHESPAAAAACE, roundId: self.idRound});
   }
 }
 
@@ -110,7 +104,3 @@ io.sockets.on('connection', function (socket) {
       
 	});
 });
-
-
-
-

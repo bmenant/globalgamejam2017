@@ -1,9 +1,10 @@
 {
   "name": "globalgamejam2017",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "node server/index.js",
+    "watch": "webpack-dev-server",
+    "build": "webpack -p"
   },
   "repository": "git@github.com:bmenant/globalgamejam2017.git",
   "author": "Benjamin Menant <dev@menant-benjamin.fr>",
@@ -22,14 +23,14 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.0.0",
-    "webpack-dev-server": "2.2.0"
-  },
-  "dependencies": {
+    "webpack-dev-server": "2.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
-    "socket.io-client": "^1.7.2",
+    "socket.io-client": "^1.7.2"
+  },
+  "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
     "socket.io": "^1.7.2"
